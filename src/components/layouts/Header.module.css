@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #121212;
+  color: #ffffff;
+  border-bottom: 2px solid #333;
+}
+
+.logoTitle {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+.logoSubtitle {
+  font-size: 0.8rem;
+  color: #888;
+}

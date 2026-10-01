@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #181818;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+/* Contenedor general por si acaso */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

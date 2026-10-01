@@ -1,0 +1,21 @@
+.botonFav {
+  background: transparent;
+  border: 1px solid #555;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.botonFav:hover {
+  border-color: #ff4757;
+  color: #ff4757;
+}
+
+.activo {
+  background: #ff4757;
+  border-color: #ff4757;
+  color: #fff;
+}

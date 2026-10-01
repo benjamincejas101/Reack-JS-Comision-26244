@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "nombre": "Teclado Mecánico Gamer RGB",
+    "precio": 45999,
+    "stock": 12,
+    "categoria": "Periféricos",
+    "descripcion": "Teclado mecánico 60% con switches Red, iluminación RGB personalizable y cable USB tipo C desmontable.",
+    "imagen": "https://ibb.co/BHY58WfV"
+  },
+  {
+    "id": 2,
+    "nombre": "Mouse Inalámbrico Ergonómico",
+    "precio": 18500,
+    "stock": 25,
+    "categoria": "Periféricos",
+    "descripcion": "Sensor óptico de alta precisión con hasta 4000 DPI, diseño ergonómico y batería recargable de larga duración.",
+    "imagen": "https://ibb.co/5W9YpcJT"
+  },
+  {
+    "id": 3,
+    "nombre": "Auriculares Gamer 7.1 Surround",
+    "precio": 32400,
+    "stock": 8,
+    "categoria": "Audio",
+    "descripcion": "Sonido envolvente 7.1, micrófono con cancelación de ruido y almohadillas de memoria de alta comodidad."
+    "imagen": https://ibb.co/5W9YpcJT 
+  },
+  {
+    "id": 4,
+    "nombre": "Monitor 24\" IPS 144Hz",
+    "precio": 215000,
+    "stock": 5,
+    "categoria": "Monitores",
+    "descripcion": "Panel IPS con resolución Full HD, tiempo de respuesta de 1ms y tecnología FreeSync para gaming fluido."
+  },
+  {
+    "id": 5,
+    "nombre": "Placa de Video NVIDIA RTX 3060",
+    "precio": 450000,
+    "stock": 3,
+    "categoria": "Hardware",
+    "descripcion": "12GB GDDR6, arquitectura Ampere, ideal para gaming en 1080p y renderizado 3D avanzado."
+  },
+  {
+    "id": 6,
+    "nombre": "Disco SSD M.2 NVMe 1TB",
+    "precio": 78900,
+    "stock": 15,
+    "categoria": "Almacenamiento",
+    "descripcion": "Velocidades de lectura de hasta 3500 MB/s, ideal para reducir tiempos de carga en sistema operativo y juegos."
+  }
+]
