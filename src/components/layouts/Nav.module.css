@@ -94,3 +94,20 @@
     display: flex !important;
   }
 }
+/* Estilo específico para cuando abre en mobile */
+.openMobile {
+  display: flex !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #161b22;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 25px 0;
+  border-bottom: 1px solid #30363d;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+  list-style: none;
+  z-index: 99;
+}
