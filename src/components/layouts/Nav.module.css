@@ -1,4 +1,4 @@
-/* Nav.module.css - Estilos completos y limpios para la barra de navegación */
+/* Nav.module.css - Versión definitiva sin residuos */
 
 .navbar {
   display: flex;
@@ -7,7 +7,7 @@
   padding: 20px 40px;
   background-color: #161b22;
   border-bottom: 1px solid #30363d;
-  position: relative; /* Clave para posicionar el menú desplegable en mobile */
+  position: relative;
 }
 
 .logo a {
@@ -40,7 +40,7 @@
   color: #58a6ff;
 }
 
-/* Botón Hamburguesa (Oculto en pantallas grandes / PC) */
+/* Botón Hamburguesa */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -51,7 +51,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
 .hamburger span {
@@ -66,29 +66,31 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 20px;
-    flex-wrap: wrap; /* Evita desbordes */
   }
 
   .hamburger {
-    display: flex; /* Muestra el botón hamburguesa en mobile */
+    display: flex;
   }
 
+  /* Oculto por completo y fuera del flujo visual de la página */
   .navLinks {
-    display: none; /* OCULTO TOTALMENTE POR DEFECTO (Adiós al residuo) */
+    display: none !important; 
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
     background-color: #161b22;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    padding: 20px 0;
-    border-top: 1px solid #30363d;
+    gap: 18px;
+    padding: 25px 0;
     border-bottom: 1px solid #30363d;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-    margin-top: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+    z-index: 99;
   }
 
-  /* Cuando se hace clic, pasa a mostrarse como flex */
+  /* Se muestra únicamente cuando React activa la clase .open */
   .navLinks.open {
-    display: flex; 
+    display: flex !important;
   }
 }
