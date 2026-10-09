@@ -1,25 +1,32 @@
-/* Nav.module.css - Versión definitiva sin residuos */
+/* ========================================================== */
+/* BDC TECH - NAV MODULE CSS (Optimizado y Compacto)          */
+/* ========================================================== */
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 18px 30px;
   background-color: #161b22;
   border-bottom: 1px solid #30363d;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
 }
 
 .logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: #58a6ff;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 8px;
+  letter-spacing: 0.5px;
 }
 
+/* Enlaces para Escrititorio (PC) */
 .navLinks {
   display: flex;
   list-style: none;
@@ -33,6 +40,7 @@
   color: #c9d1d9;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem;
   transition: color 0.2s ease;
 }
 
@@ -40,41 +48,44 @@
   color: #58a6ff;
 }
 
-/* Botón Hamburguesa */
+/* Botón Hamburguesa (Oculto en PC, visible en Mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 21px;
+  width: 26px;
+  height: 18px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 100;
+  z-index: 1010;
 }
 
 .hamburger span {
   width: 100%;
-  height: 3px;
+  height: 2.5px;
   background-color: #c9d1d9;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-/* Media Query para Celulares y Tablets */
+/* ========================================================== */
+/* MEDIA QUERY PARA CELULARES Y TABLETS (Max 768px)           */
+/* ========================================================== */
+
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 20px;
   }
 
   .hamburger {
-    display: flex;
+    display: flex; /* Se muestra el botón en celulares */
   }
 
-  /* Oculto por completo y fuera del flujo visual de la página */
-  .navLinks {
-    display: none !important; 
+  /* Menú desplegable móvil compacto, elegante y que no tapa toda la pantalla */
+  .openMobile {
+    display: flex !important;
     position: absolute;
     top: 100%;
     left: 0;
@@ -82,32 +93,31 @@
     background-color: #161b22;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
-    padding: 25px 0;
+    gap: 8px; /* Separación mínima para que sea compacto */
+    padding: 12px 0 16px 0; /* Espaciado corto para no invadir contenido */
     border-bottom: 1px solid #30363d;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
-    z-index: 99;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    list-style: none;
+    z-index: 1005;
+    margin: 0;
   }
 
-  /* Se muestra únicamente cuando React activa la clase .open */
-  .navLinks.open {
-    display: flex !important;
+  .openMobile li {
+    width: 100%;
+    text-align: center;
   }
-}
-/* Estilo específico para cuando abre en mobile */
-.openMobile {
-  display: flex !important;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #161b22;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  padding: 25px 0;
-  border-bottom: 1px solid #30363d;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
-  list-style: none;
-  z-index: 99;
+
+  .openMobile li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 1rem;
+    color: #c9d1d9;
+    width: 100%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .openMobile li a:hover {
+    color: #58a6ff;
+    background-color: rgba(88, 166, 255, 0.05);
+  }
 }
