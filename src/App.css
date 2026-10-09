@@ -26,7 +26,16 @@ body {
   width: 100%;
 }
 
-/* Estilos para el Navbar (podes llevarlo a Nav.module.css si preferís) */
+/* Grilla de productos para verlos uno al lado del otro */
+.gridProductos, .itemList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Estilos para el Navbar */
 nav {
   display: flex;
   justify-content: space-between;
@@ -77,13 +86,12 @@ button:active {
   transform: scale(0.98);
 }
 
-/* Agregá esto en tu App.css o en el archivo donde manejes tu grilla de productos */
+/* Media query para celulares */
 @media (max-width: 600px) {
   .main-content {
     padding: 10px;
   }
 
-  /* Si usas una clase de grilla para los productos */
   .gridProductos, .itemList {
     grid-template-columns: 1fr; /* Una sola tarjeta por línea en celulares */
     gap: 15px;
