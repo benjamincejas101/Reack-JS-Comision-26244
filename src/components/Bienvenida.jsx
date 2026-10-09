@@ -31,10 +31,14 @@ export const Bienvenida = () => {
 
   return (
     <div className={styles.container}>
-      {/* Banner Principal de Bienvenida */}
-      <div className={styles.hero}>
-        <h1 className={styles.heroTitle}>⚡ Bienvenido a BDC TECH</h1>
-        <p className={styles.heroText}>Tu tienda de confianza en componentes, hardware y periféricos de alto rendimiento.</p>
+      {/* Banner Principal de Bienvenida con estilos seguros para mobile */}
+      <div className={styles.hero} style={{ padding: '25px 10px', overflow: 'hidden' }}>
+        <h1 style={{ fontSize: '1.4rem', marginBottom: '12px', color: '#58a6ff', wordBreak: 'break-word', lineHeight: '1.3' }}>
+          ⚡ Bienvenido a BDC TECH
+        </h1>
+        <p style={{ color: '#8b949e', fontSize: '0.9rem', marginBottom: '20px', padding: '0 5px' }}>
+          Tu tienda de confianza en componentes, hardware y periféricos de alto rendimiento.
+        </p>
         <Link to="/productos" className={styles.btnCatalogo}>
           Ver Catálogo Completo
         </Link>
