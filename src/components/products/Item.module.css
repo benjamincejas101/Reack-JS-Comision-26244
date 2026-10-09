@@ -75,3 +75,30 @@
   gap: 20px;
   padding: 20px;
 }
+/* Agregá esto al final de tu Item.module.css */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%; /* Ocupa todo el ancho disponible en celulares */
+    margin: 0 auto;
+  }
+
+  .imagenContainer {
+    height: 160px; /* Reducimos un poco la altura de la imagen en mobile */
+  }
+
+  .contenido {
+    padding: 12px;
+  }
+
+  .titulo {
+    font-size: 0.95rem;
+  }
+
+  .descripcion {
+    font-size: 0.8rem;
+  }
+
+  .precio {
+    font-size: 1.05rem;
+  }
+}
