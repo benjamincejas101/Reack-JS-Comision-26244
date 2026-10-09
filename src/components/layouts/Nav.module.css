@@ -1,4 +1,4 @@
-/* Nav.module.css - Estilos completos para la barra de navegación */
+/* Nav.module.css - Estilos completos y limpios para la barra de navegación */
 
 .navbar {
   display: flex;
@@ -7,7 +7,7 @@
   padding: 20px 40px;
   background-color: #161b22;
   border-bottom: 1px solid #30363d;
-  position: relative; /* Necesario para que el menú móvil se posicione bien debajo */
+  position: relative; /* Clave para posicionar el menú desplegable en mobile */
 }
 
 .logo a {
@@ -69,7 +69,7 @@
   }
 
   .hamburger {
-    display: flex; /* Se muestra el botón en mobile */
+    display: flex; /* Muestra el botón hamburguesa en mobile */
   }
 
   .navLinks {
@@ -80,20 +80,22 @@
     background-color: #161b22;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0;
-    gap: 15px;
+    gap: 0;
     border-bottom: 1px solid #30363d;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
     
-    /* Oculto por defecto */
+    /* Ocultamiento total inicial para evitar residuos visuales */
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease;
+    visibility: hidden;
+    transition: max-height 0.3s ease-in-out, visibility 0.3s ease-in-out, padding 0.3s ease;
   }
 
-  /* Se despliega cuando el componente activa la clase .open */
+  /* Se despliega y se hace visible al hacer clic */
   .navLinks.open {
+    visibility: visible;
     max-height: 300px;
     padding: 20px 0;
+    gap: 20px;
   }
 }
