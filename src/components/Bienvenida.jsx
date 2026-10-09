@@ -31,10 +31,10 @@ export const Bienvenida = () => {
 
   return (
     <div className={styles.container}>
-      {/* Banner Principal de Bienvenida */}
+      {/* Banner Principal de Bienvenida - Texto corto de prueba */}
       <div className={styles.hero}>
-        <h1 className={styles.heroTitle} style={{ fontSize: '1.5rem', wordBreak: 'break-all', overflowWrap: 'break-word' }}>
-          ⚡ Bienvenido <br /> a BDC TECH
+        <h1 style={{ fontSize: '1.2rem', color: '#58a6ff', marginBottom: '12px' }}>
+          BDC TECH ONLINE
         </h1>
         <p className={styles.heroText}>Tu tienda de confianza en componentes, hardware y periféricos de alto rendimiento.</p>
         <Link to="/productos" className={styles.btnCatalogo}>
