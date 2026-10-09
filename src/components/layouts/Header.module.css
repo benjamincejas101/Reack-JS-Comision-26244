@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
   background-color: #121212;
   color: #ffffff;
   border-bottom: 2px solid #333;
+  width: 100%;
 }
 
 .logoTitle {
@@ -18,4 +18,11 @@
 .logoSubtitle {
   font-size: 0.8rem;
   color: #888;
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 1rem;
+  }
 }
