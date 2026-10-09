@@ -6,7 +6,7 @@
     "stock": 12,
     "categoria": "Periféricos",
     "descripcion": "Teclado mecánico 60% con switches Red, iluminación RGB personalizable y cable USB tipo C desmontable.",
-    "imagen": "https://ibb.co/BHY58WfV"
+    "imagen": "https://i.ibb.co/BHY58WfV/teclado.jpg"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "stock": 25,
     "categoria": "Periféricos",
     "descripcion": "Sensor óptico de alta precisión con hasta 4000 DPI, diseño ergonómico y batería recargable de larga duración.",
-    "imagen": "https://ibb.co/5W9YpcJT"
+    "imagen": "https://i.ibb.co/5W9YpcJT/mouse.jpg"
   },
   {
     "id": 3,
@@ -23,8 +23,8 @@
     "precio": 32400,
     "stock": 8,
     "categoria": "Audio",
-    "descripcion": "Sonido envolvente 7.1, micrófono con cancelación de ruido y almohadillas de memoria de alta comodidad."
-    "imagen": https://ibb.co/5W9YpcJT 
+    "descripcion": "Sonido envolvente 7.1, micrófono con cancelación de ruido y almohadillas de memoria de alta comodidad.",
+    "imagen": "https://i.ibb.co/Kcwkczh3/auriculares.jpg"
   },
   {
     "id": 4,
@@ -32,7 +32,8 @@
     "precio": 215000,
     "stock": 5,
     "categoria": "Monitores",
-    "descripcion": "Panel IPS con resolución Full HD, tiempo de respuesta de 1ms y tecnología FreeSync para gaming fluido."
+    "descripcion": "Panel IPS con resolución Full HD, tiempo de respuesta de 1ms y tecnología FreeSync para gaming fluido.",
+    "imagen": "https://i.ibb.co/7NjcdPSk/monitor.jpg"
   },
   {
     "id": 5,
@@ -40,7 +41,8 @@
     "precio": 450000,
     "stock": 3,
     "categoria": "Hardware",
-    "descripcion": "12GB GDDR6, arquitectura Ampere, ideal para gaming en 1080p y renderizado 3D avanzado."
+    "descripcion": "12GB GDDR6, arquitectura Ampere, ideal para gaming en 1080p y renderizado 3D avanzado.",
+    "imagen": "https://i.ibb.co/Kcwkczh3/placa.jpg"
   },
   {
     "id": 6,
@@ -48,6 +50,88 @@
     "precio": 78900,
     "stock": 15,
     "categoria": "Almacenamiento",
-    "descripcion": "Velocidades de lectura de hasta 3500 MB/s, ideal para reducir tiempos de carga en sistema operativo y juegos."
+    "descripcion": "Velocidades de lectura de hasta 3500 MB/s, ideal para reducir tiempos de carga en sistema operativo y juegos.",
+    "imagen": "https://i.ibb.co/S4rqzfsX/ssd.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Procesador AMD Ryzen 5 5600X",
+    "precio": 240000,
+    "stock": 7,
+    "categoria": "Hardware",
+    "descripcion": "6 núcleos, 12 hilos, velocidad boost de hasta 4.6 GHz con cooler Wraith Stealth incluido.",
+    "imagen": "https://i.ibb.co/1YXWvsGS/procesador.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Memoria RAM 16GB (2x8GB) DDR4 3200MHz",
+    "precio": 65000,
+    "stock": 20,
+    "categoria": "Hardware",
+    "descripcion": "Kit de memoria dual channel con disipador de aluminio y perfil XMP 2.0 para fácil overclock.",
+    "imagen": "https://i.ibb.co/cSQ6LYFZ/ram.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Gabinete Gamer Vidrio Templado",
+    "precio": 72000,
+    "stock": 10,
+    "categoria": "Gabinetes",
+    "descripcion": "Media torre con panel lateral de vidrio templado, 3 fans RGB preinstalados y excelente flujo de aire.",
+    "imagen": "https://i.ibb.co/GQSFPGHv/gabinete.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Fuente de Poder 600W 80 Plus Bronze",
+    "precio": 85000,
+    "stock": 12,
+    "categoria": "Hardware",
+    "descripcion": "Certificación 80 Plus Bronze, diseño de cables mallados y protección inteligente contra sobretensiones.",
+    "imagen": "https://i.ibb.co/1YZxTNfn/fuente.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Silla Gamer Ergonómica Reclinable",
+    "precio": 290000,
+    "stock": 4,
+    "categoria": "Mobiliario",
+    "descripcion": "Altura ajustable, respaldo reclinable hasta 150 grados, almohadones lumbar y cervical incluidos.",
+    "imagen": "https://i.ibb.co/5xBFDNMQ/silla.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Micrófono Condensador USB Streaming",
+    "precio": 54000,
+    "stock": 9,
+    "categoria": "Audio",
+    "descripcion": "Patrón polar cardioide, control de volumen integrado, salida de auriculares y soporte de escritorio.",
+    "imagen": "https://i.ibb.co/KcGMdDZV/microfono.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Webcam Full HD 1080p con Micrófono",
+    "precio": 38000,
+    "stock": 14,
+    "categoria": "Periféricos",
+    "descripcion": "Ideal para videollamadas y streaming, enfoque automático y corrección de luz avanzada.",
+    "imagen": "https://i.ibb.co/cS4Pk51Y/camara.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Joystick Inalámbrico Compatible PC/Console",
+    "precio": 49999,
+    "stock": 18,
+    "categoria": "Periféricos",
+    "descripcion": "Diseño ergonómico, gatillos analógicos sensibles a la presión y batería de larga duración con receptor USB.",
+    "imagen": "https://i.ibb.co/TQgRB3C/joystick.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Notebook Gamer 15.6\" i5 RTX 4050",
+    "precio": 1250000,
+    "stock": 2,
+    "categoria": "Equipos",
+    "descripcion": "Pantalla 144Hz, procesador Intel Core i5 de última generación, 16GB RAM y almacenamiento SSD de 512GB.",
+    "imagen": "https://i.ibb.co/spLLcZtK/notebook.jpg"
   }
 ]

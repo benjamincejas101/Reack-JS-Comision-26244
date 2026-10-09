@@ -1,0 +1,77 @@
+.card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  max-width: 320px; /* Limitamos el ancho máximo de la tarjeta para que no se estire demasiado en pantallas grandes */
+  margin: 0 auto;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #58a6ff;
+}
+
+.imagenContainer {
+  width: 100%;
+  height: 200px; /* Altura controlada para el contenedor */
+  background: #0d1117;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.imagenContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* CLAVE: Muestra la foto entera sin recortarla ni deformarla */
+}
+
+.contenido {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.categoria {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #8b949e;
+  background: #21262d;
+  padding: 2px 6px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e1e1e6;
+}
+
+.descripcion {
+  font-size: 0.85rem;
+  color: #8b949e;
+  line-height: 1.3;
+}
+
+.precio {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #58a6ff;
+  margin-top: 5px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
