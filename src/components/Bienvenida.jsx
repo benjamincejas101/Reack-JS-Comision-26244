@@ -33,7 +33,9 @@ export const Bienvenida = () => {
     <div className={styles.container}>
       {/* Banner Principal de Bienvenida */}
       <div className={styles.hero}>
-        <h1 className={styles.heroTitle}>⚡ Bienvenido a BDC TECH</h1>
+        <h1 className={styles.heroTitle} style={{ fontSize: '1.5rem', wordBreak: 'break-all', overflowWrap: 'break-word' }}>
+          ⚡ Bienvenido <br /> a BDC TECH
+        </h1>
         <p className={styles.heroText}>Tu tienda de confianza en componentes, hardware y periféricos de alto rendimiento.</p>
         <Link to="/productos" className={styles.btnCatalogo}>
           Ver Catálogo Completo
