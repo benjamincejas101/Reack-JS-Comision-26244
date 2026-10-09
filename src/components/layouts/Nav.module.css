@@ -1,38 +1,99 @@
-.navList {
+/* Nav.module.css - Estilos completos para la barra de navegación */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+  position: relative; /* Necesario para que el menú móvil se posicione bien debajo */
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #58a6ff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navLinks {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 25px;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
 
-.navLink {
+.navLinks li a {
+  color: #c9d1d9;
   text-decoration: none;
-  color: #e0e0e0;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
-.navLink:hover {
-  color: #00ffcc;
+.navLinks li a:hover {
+  color: #58a6ff;
 }
 
-/* Agregá esto al final de tu Nav.module.css o App.css */
+/* Botón Hamburguesa (Oculto en pantallas grandes / PC) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: #c9d1d9;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Media Query para Celulares y Tablets */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 15px;
+  .navbar {
     padding: 15px 20px;
-    text-align: center;
   }
 
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+  .hamburger {
+    display: flex; /* Se muestra el botón en mobile */
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #161b22;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
     gap: 15px;
+    border-bottom: 1px solid #30363d;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    
+    /* Oculto por defecto */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease;
   }
 
-  nav ul li a {
-    font-size: 0.9rem;
+  /* Se despliega cuando el componente activa la clase .open */
+  .navLinks.open {
+    max-height: 300px;
+    padding: 20px 0;
   }
 }
