@@ -66,6 +66,7 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 20px;
+    flex-wrap: wrap; /* Evita desbordes */
   }
 
   .hamburger {
@@ -73,29 +74,21 @@
   }
 
   .navLinks {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    display: none; /* OCULTO TOTALMENTE POR DEFECTO (Adiós al residuo) */
     width: 100%;
     background-color: #161b22;
     flex-direction: column;
     align-items: center;
-    gap: 0;
+    gap: 15px;
+    padding: 20px 0;
+    border-top: 1px solid #30363d;
     border-bottom: 1px solid #30363d;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-    
-    /* Ocultamiento total inicial para evitar residuos visuales */
-    max-height: 0;
-    overflow: hidden;
-    visibility: hidden;
-    transition: max-height 0.3s ease-in-out, visibility 0.3s ease-in-out, padding 0.3s ease;
+    margin-top: 15px;
   }
 
-  /* Se despliega y se hace visible al hacer clic */
+  /* Cuando se hace clic, pasa a mostrarse como flex */
   .navLinks.open {
-    visibility: visible;
-    max-height: 300px;
-    padding: 20px 0;
-    gap: 20px;
+    display: flex; 
   }
 }
