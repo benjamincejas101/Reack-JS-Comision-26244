@@ -15,7 +15,15 @@ function App() {
     <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#000' }}>
       <Nav />
       
-      <main className="main-content" style={{ flex: 1 }}>
+      {/* SE OPTIMIZÓ EL MAIN: Ahora se expande hasta 1400px en PC y se centra de forma automática */}
+      <main className="main-content" style={{ 
+        flex: 1, 
+        width: '100%', 
+        maxWidth: '1400px', // Permite que la app se estire en pantallas de PC
+        margin: '0 auto',   // Centra todo el contenido cuando la pantalla es gigante
+        padding: '20px',
+        boxSizing: 'border-box'
+      }}>
         <Routes>
           <Route path="/" element={<Bienvenida nombreUsuario="Gamer" />} />
           <Route path="/carrito" element={<Carrito />} />

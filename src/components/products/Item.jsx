@@ -1,12 +1,13 @@
 // src/components/products/Item.jsx
 import { useCarrito } from '../../context/CarritoContext';
 
+// Volvemos a recibir 'producto' como estaba originalmente en tu base de datos
 export const Item = ({ producto }) => {
   const { agregarAlCarrito } = useCarrito();
 
   const handleAgregar = () => {
     agregarAlCarrito(producto, 1);
-    alert(`¡${producto.nombre} agregado al carrito!`);
+    alert(`¡${producto?.nombre} agregado al carrito!`);
   };
 
   return (
@@ -19,7 +20,8 @@ export const Item = ({ producto }) => {
       display: 'flex', 
       flexDirection: 'column', 
       justifyContent: 'space-between',
-      height: '470px', // Aumentamos la altura fija para que quepa todo el contenido cómodamente
+      minHeight: '520px', // Cambiado a minHeight (camelCase) para evitar cortes de texto
+      width: '100%',       // Permite que la tarjeta ocupe todo el ancho disponible en la grilla
       boxShadow: '0 4px 15px rgba(0,0,0,0.6)',
       boxSizing: 'border-box'
     }}>
@@ -38,8 +40,8 @@ export const Item = ({ producto }) => {
           borderRadius: '4px'
         }}>
           <img 
-            src={producto.imagen} 
-            alt={producto.nombre} 
+            src={producto?.imagen} 
+            alt={producto?.nombre} 
             style={{ maxWidth: '95%', maxHeight: '95%', objectFit: 'contain' }} 
           />
         </div>
@@ -57,30 +59,30 @@ export const Item = ({ producto }) => {
           lineHeight: '1.3',
           fontWeight: 'bold'
         }}>
-          {producto.nombre}
+          {producto?.nombre}
         </h3>
 
-        {/* DESCRIPCIÓN VOLVIÓ A APARECER AQUÍ (Limitada a 2 líneas limpias) */}
+        {/* Descripción Ajustada sin romper tamaños */}
         <p style={{
           fontSize: '0.85rem',
           color: '#888',
-          margin: '0',
+          margin: '0 0 15px 0',
           textAlign: 'center',
-          height: '36px',
+          height: '65px', // Damos suficiente espacio de altura para contener la descripción
           overflow: 'hidden',
           display: '-webkit-box',
-          WebkitLineClamp: 2,
+          WebkitLineClamp: 3,
           WebkitBoxOrient: 'vertical',
           lineHeight: '1.4'
         }}>
-          {producto.descripcion}
+          {producto?.descripcion}
         </p>
       </div>
       
       {/* SECCIÓN INFERIOR: Precio y Botón de Compra */}
       <div style={{ textAlign: 'center', marginTop: 'auto' }}>
         <p style={{ color: '#00f2fe', fontWeight: 'bold', fontSize: '1.4rem', margin: '10px 0' }}>
-          \${producto.precio.toLocaleString('es-AR')}
+          \${producto?.precio?.toLocaleString('es-AR')}
         </p>
         <button 
           onClick={handleAgregar}
@@ -109,3 +111,4 @@ export const Item = ({ producto }) => {
 };
 
 export default Item;
+

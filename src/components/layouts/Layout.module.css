@@ -1,22 +1,17 @@
+/* Este es el contenedor que envuelve toda la página */
 .layoutContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #181818;
-  color: #ffffff;
+  background-color: #0b0b0b; /* El fondo oscuro de tu app */
 }
 
+/* Este es el contenedor del contenido central (las tarjetas) */
 .mainContent {
   flex: 1;
-  padding: 2rem;
-  max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
-}
-
-/* Ajuste responsivo para celulares */
-@media (max-width: 768px) {
-  .mainContent {
-    padding: 1rem; /* Margen más chico para aprovechar la pantalla del celu */
-  }
+  max-width: 1300px; /* Al subirlo a 1300px se expandirá correctamente en PC */
+  margin: 0 auto;    /* Centra el bloque en pantallas gigantes */
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
