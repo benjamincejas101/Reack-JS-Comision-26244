@@ -1,0 +1,22 @@
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #181818;
+  color: #ffffff;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 1rem; /* Margen más chico para aprovechar la pantalla del celu */
+  }
+}
