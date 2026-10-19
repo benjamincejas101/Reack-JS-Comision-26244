@@ -1,158 +1,49 @@
-/* ========================================================== */
-/* BDC TECH - APP.CSS GENERAL (Optimizado y Compacto)         */
-/* ========================================================== */
+/* src/App.css */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.gamer-footer {
+  background-color: #050505;
+  padding: 25px 40px;
+  margin-top: 50px;
+  position: relative;
 }
 
-body {
-  background-color: #0f1115;
-  color: #e1e1e6;
-  min-height: 100vh;
+/* Línea de neón cian que divide el contenido */
+.footer-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #00f2fe, transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px #00f2fe;
 }
 
-.app-container {
+.footer-content {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main-content {
-  flex: 1;
-  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  color: #666;
 }
 
-/* Grilla de productos para verlos uno al lado del otro */
-.gridProductos, .itemList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 25px;
-  width: 100%;
-  margin-top: 20px;
-}
-
-/* Tarjetas de productos y contenedores generales */
-.card, section form {
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-button {
-  transition: background 0.2s ease, transform 0.1s ease;
-  cursor: pointer;
-}
-
-button:active {
-  transform: scale(0.98);
-}
-
-/* ========================================================== */
-/* SECCIÓN DE BIENVENIDA / HERO (Optimizada para Celulares)   */
-/* ========================================================== */
-
-.hero, .welcome-section {
-  padding: 50px 20px;
-  text-align: center;
-  margin-bottom: 25px;
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 10px;
-}
-
-.hero h1, .welcome-section h1 {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-  color: #58a6ff;
-}
-
-.hero p, .welcome-section p {
-  font-size: 1.05rem;
-  margin-bottom: 20px;
-  color: #c9d1d9;
-}
-
-/* Media query para celulares (Achica el banner para que no tape la pantalla) */
-@media (max-width: 768px) {
-  .main-content {
-    padding: 10px;
-  }
-
-  .gridProductos, .itemList {
-    grid-template-columns: 1fr; /* Una sola tarjeta por línea en celulares */
-    gap: 15px;
-  }
-
-  .hero, .welcome-section {
-    padding: 20px 15px; /* Espaciado corto para que no ocupe todo el alto */
-    margin-bottom: 15px;
-  }
-
-  .hero h1, .welcome-section h1 {
-    font-size: 1.5rem; /* Título más compacto */
-    margin-bottom: 8px;
-  }
-
-  .hero p, .welcome-section p {
-    font-size: 0.9rem; /* Descripción más chica */
-    margin-bottom: 15px;
-  }
-}
-
-/* Pantalla completa de carga centrada */
-.loading-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 60vh;
-  gap: 20px;
-  font-family: 'Arial', sans-serif;
-  color: #00f2fe; /* Color cyan gamer */
-}
-
-.loading-screen p {
-  font-size: 1.2rem;
+/* El botón con el candado encapsulado estilo cyberpunk */
+.admin-footer-link {
+  color: #888;
+  text-decoration: none;
   font-weight: bold;
-  letter-spacing: 1px;
-  animation: pulse 1.5s infinite ease-in-out;
+  padding: 6px 16px;
+  border-radius: 4px;
+  border: 1px solid #222;
+  background-color: #0a0a0a;
+  transition: all 0.3s ease;
 }
 
-/* El círculo giratorio (Spinner) */
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid rgba(0, 242, 254, 0.1);
-  border-top: 5px solid #00f2fe; /* Borde brillante */
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-/* Animación de rotación */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Animación de parpadeo para el texto */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
+.admin-footer-link:hover {
+  color: #00f2fe;
+  border-color: #00f2fe;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+  background-color: #111;
 }

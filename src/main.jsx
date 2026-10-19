@@ -1,13 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom' // 👈 1. Agregamos la importación
-import './index.css'
+// src/main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { BrowserRouter } from 'react-router-dom'
+// Importamos el proveedor del carrito
+import { CarritoProvider } from './context/CarritoContext.jsx' 
+import './index.css'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter> {/* 👈 2. Envolvemos la aplicación */}
-      <App />
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      {/* Envolvemos aquí para habilitar la memoria global del carrito */}
+      <CarritoProvider>
+        <App />
+      </CarritoProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </React.StrictMode>,
 )
