@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-import { Item } from "./products/Item";
+import { Item } from "./products/Item"; // Mantiene tus tarjetas de hardware originales
 
 export const Bienvenida = ({ nombreUsuario }) => {
   const [productos, setProductos] = useState([]);
@@ -12,6 +12,7 @@ export const Bienvenida = ({ nombreUsuario }) => {
   const obtenerCatalogo = async () => {
     try {
       setLoading(true);
+      // Conectamos a tu colección original de Hardware
       const productosRef = collection(db, "Productos");
       const querySnapshot = await getDocs(productosRef);
       const docs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -47,15 +48,18 @@ export const Bienvenida = ({ nombreUsuario }) => {
 
   return (
     <div style={{ color: "#fff", padding: "0 20px", maxWidth: "1300px", margin: "0 auto", boxSizing: "border-box" }}>
+      
+      {/* Cabecera Gamer de Bienvenida */}
       <section style={{ textAlign: "center", padding: "40px 20px", margin: "10px 0", borderBottom: "1px solid #151515" }}>
         <h1 style={{ fontSize: "2.6rem", margin: "0 0 12px 0", color: "#fff", fontWeight: 900, letterSpacing: "1px" }}>
-          Bienvenidos a <span style={{ color: "#00f2fe" }}>BCD TECH</span>
+          ¡Bienvenido, <span style={{ color: "#00f2fe" }}>{nombreUsuario || "Gamer"}</span>!
         </h1>
         <p style={{ color: "#888", fontSize: "1.15rem", fontWeight: 500, margin: "0 auto" }}>
-          Especialistas en productos electrónicos y componentes de alta gama.
+          Explorá los mejores componentes tecnológicos y hardware de alta gama en BCD TECH.
         </p>
       </section>
 
+      {/* Botones de Categorías */}
       <div style={{ display: "flex", gap: "12px", marginBottom: "40px", justifyContent: "center", flexWrap: "wrap" }}>
         {["todos", "Hardware", "Periféricos", "Audio"].map((cat) => (
           <button 
@@ -80,6 +84,7 @@ export const Bienvenida = ({ nombreUsuario }) => {
         ))}
       </div>
 
+      {/* Grilla Gamer con los 16 Productos de Firestore */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(285px, 1fr))", gap: "30px", width: "100%", boxSizing: "border-box", marginBottom: "60px" }}>
         {productosFiltrados.map(producto => (
           <Item key={producto.id} producto={producto} />

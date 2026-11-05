@@ -11,6 +11,15 @@ const Carrito = () => {
     cobroTotal 
   } = useCarrito();
 
+  // 🎟️ Lectura directa de los cupones activos desde el almacenamiento
+  const codigoCupon = localStorage.getItem('cuponActivo');
+  const porcentajeDescuento = Number(localStorage.getItem('descuentoCupon')) || 0;
+
+  // Cálculos reactivos de los montos financieros
+  const totalOriginal = cobroTotal();
+  const montoDescuento = totalOriginal * (porcentajeDescuento / 100);
+  const totalFinal = totalOriginal - montoDescuento;
+
   // Si el cliente no agregó nada aún, mostramos una pantalla limpia con estética gamer
   if (carrito.length === 0) {
     return (
@@ -38,13 +47,12 @@ const Carrito = () => {
               alignItems: 'center', 
               gap: '1.5rem', 
               marginBottom: '1rem',
-              backgroundColor: '#1a1a1a', // Fondo oscuro para combinar con tu app
+              backgroundColor: '#1a1a1a', 
               padding: '1rem',
               borderRadius: '8px',
               border: '1px solid #333'
             }}
           >
-            {/* Maneja la compatibilidad si la imagen viene de tu json o de una api externa */}
             <img 
               src={item.imagen || item.image} 
               alt={item.nombre} 
@@ -118,29 +126,47 @@ const Carrito = () => {
       </div>
 
       {/* Resumen del Checkout al final de la página */}
-      <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#111', padding: '1.5rem', borderRadius: '8px', border: '1px solid #222' }}>
-        <h3 style={{ margin: '0' }}>
-          Total a pagar:{' '}
-          <span style={{ color: '#00f2fe' }}>
-            ${cobroTotal().toLocaleString('es-AR')}
-          </span>
-        </h3>
+      <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '15px', backgroundColor: '#111', padding: '1.5rem', borderRadius: '8px', border: '1px solid #222' }}>
         
-        <div style={{ display: 'flex', gap: '15px' }}>
-          <button 
-            onClick={vaciarCarrito}
-            style={{ padding: '10px 20px', cursor: 'pointer', backgroundColor: 'transparent', color: '#ff4d4d', border: '1px solid #ff4d4d', borderRadius: '4px', fontWeight: 'bold' }}
-          >
-            Vaciar Carrito
-          </button>
+        {/* Desglose financiero si hay un cupón activo */}
+        {codigoCupon && (
+          <div style={{ borderBottom: '1px solid #222', paddingBottom: '10px', fontSize: '0.95rem', color: '#aaa', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <span>Subtotal original:</span>
+              <span>${totalOriginal.toLocaleString('es-AR')}</span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', color: '#ff4d4d' }}>
+              <span>Descuento Cupón ({codigoCupon} -{porcentajeDescuento}%):</span>
+              <span>-${montoDescuento.toLocaleString('es-AR')}</span>
+            </div>
+          </div>
+        )}
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h3 style={{ margin: '0' }}>
+            Total a pagar:{' '}
+            <span style={{ color: '#00f2fe' }}>
+              ${totalFinal.toLocaleString('es-AR')}
+            </span>
+          </h3>
           
-          <button 
-            onClick={() => alert("¡Próximamente procesamiento de órdenes con Firebase!")}
-            style={{ padding: '10px 20px', cursor: 'pointer', backgroundColor: '#00f2fe', color: '#000', border: 'none', borderRadius: '4px', fontWeight: 'bold' }}
-          >
-            Finalizar Compra
-          </button>
+          <div style={{ display: 'flex', gap: '15px' }}>
+            <button 
+              onClick={vaciarCarrito}
+              style={{ padding: '10px 20px', cursor: 'pointer', backgroundColor: 'transparent', color: '#ff4d4d', border: '1px solid #ff4d4d', borderRadius: '4px', fontWeight: 'bold' }}
+            >
+              Vaciar Carrito
+            </button>
+            
+            <button 
+              onClick={() => alert(`¡Orden procesada! Total: $${totalFinal.toLocaleString('es-AR')}. Próximamente procesamiento de órdenes con Firebase!`)}
+              style={{ padding: '10px 20px', cursor: 'pointer', backgroundColor: '#00f2fe', color: '#000', border: 'none', borderRadius: '4px', fontWeight: 'bold' }}
+            >
+              Finalizar Compra
+            </button>
+          </div>
         </div>
+
       </div>
     </div>
   );

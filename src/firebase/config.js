@@ -6,7 +6,8 @@ import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDw5IhsW4sZCqc5K_ajx8ci3X_Z35EQB24",
-  authDomain: "://firebaseapp.com", // 👈 REVISÁ QUE QUEDE ASÍ (sin :// ni espacios)
+  // 🔽 CORRECCIÓN AQUÍ: Agregado 'bcd-tech' al inicio sin "://" ni espacios adicionales
+  authDomain: "bcd-tech.firebaseapp.com", 
   projectId: "bcd-tech",
   storageBucket: "bcd-tech.firebasestorage.app",
   messagingSenderId: "86135335088",
@@ -21,4 +22,4 @@ const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 
 // Exportamos Storage para guardar los archivos físicos de tus imágenes
-export const storage = getStorage(app); 
+export const storage = getStorage(app);

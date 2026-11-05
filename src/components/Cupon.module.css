@@ -1,0 +1,145 @@
+/* src/components/Cupon.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+  border-bottom: 1px solid #222;
+  padding-bottom: 15px;
+}
+
+.header h1 {
+  color: #00f2fe;
+  margin: 0;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+}
+
+.subtitle {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.statusText,
+.emptyText {
+  color: #00f2fe;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.emptyText {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Mensaje de error */
+.errorMessage {
+  background-color: rgba(255, 77, 77, 0.1);
+  color: #ff4d4d;
+  border: 1px solid #ff4d4d;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Lista de Cupones */
+.listSection {
+  margin-top: 1rem;
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.badge {
+  background-color: #00f2fe;
+  color: #000;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-left: 4px solid #00f2fe;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  border-color: #00f2fe;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  transform: translateY(-2px);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.code {
+  font-family: monospace;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: #222;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px dashed #444;
+}
+
+.discount {
+  align-self: flex-end;
+  background-color: rgba(0, 242, 254, 0.1);
+  color: #00f2fe;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
