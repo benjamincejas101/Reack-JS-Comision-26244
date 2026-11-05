@@ -1,52 +1,61 @@
 import { useEffect, useState } from 'react';
-import { ItemList } from './ItemList';
-import { db } from '../../firebase/config';
-import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/config';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { ItemList } from './ItemList'; // Asegúrate de tener este componente para renderizar el mapeo
 
-export const ItemListContainer = ({ greeting }) => {
+export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true); // Comienza en true
+  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    const obtenerProductosFirebase = async () => {
+    const obtenerProductos = async () => {
       try {
-        const productosRef = collection(db, 'productos');
-        const querySnapshot = await getDocs(productosRef);
+        setCargando(true);
+        // 1. APUNTAMOS A LA COLECCIÓN "Productos" (con P mayúscula)
+        const productosRef = collection(db, "Productos");
         
-        const docsNormalizados = querySnapshot.docs.map((docSnap) => ({
-          id: docSnap.id,
-          ...docSnap.data()
+        // 2. ORDENAMOS POR FECHA DE REGISTRO PARA MOSTRAR LOS MÁS NUEVOS PRIMERO
+        const q = query(productosRef, orderBy("fechaRegistro", "desc"));
+        const querySnapshot = await getDocs(q);
+        
+        // 3. MAPEAMOS LOS DATOS DE FIREBASE AGREGANDO EL ID ÚNICO DE DOCUMENTO
+        const docs = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
         }));
 
-        setProductos(docsNormalizados);
+        setProductos(docs);
       } catch (error) {
-        console.error('Error al cargar datos desde Firebase:', error);
+        console.error("Error al traer los productos de Firebase:", error);
       } finally {
-        // Apagamos el loading tanto si salió bien como si falló
-        setLoading(false); 
+        setCargando(false);
       }
     };
 
-    obtenerProductosFirebase();
+    obtenerProductos();
   }, []);
 
-  // RETORNO CONDICIONAL: Si está cargando, frena el código aquí y muestra la animación
-  if (loading) {
+  if (cargando) {
     return (
-      <div className="loading-screen">
-        <div className="spinner"></div>
-        <p>Cargando el arsenal gamer...</p>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px', color: '#00f2fe' }}>
+        <h2>Cargando componentes de alta gama...</h2>
       </div>
     );
   }
 
-  // Si loading es false, este es el código que finalmente se muestra
   return (
-    <div className="catalog-container">
-      <h2 style={{ textAlign: 'center', margin: '20px 0' }}>{greeting}</h2>
-      <ItemList productos={productos} />
+    <div>
+      {/* 4. RENDERIZAMOS TUS COMPONENTES SI HAY PRODUCTOS */}
+      {productos.length > 0 ? (
+        <ItemList productos={productos} />
+      ) : (
+        <h2 style={{ textAlign: 'center', marginTop: '50px', color: '#fff' }}>
+          No hay artículos cargados en esta categoría actualmente.
+        </h2>
+      )}
     </div>
   );
 };
 
 export default ItemListContainer;
+

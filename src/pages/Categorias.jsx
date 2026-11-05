@@ -12,33 +12,38 @@ export const Categorias = () => {
   // Obtenemos el parámetro 'idCategoria' definido en las rutas de App.jsx
   const { idCategoria } = useParams();
 
-  useEffect(() => {
-    const obtenerProductosPorCategoria = async () => {
-      setLoading(true);
-      try {
-        const productosRef = collection(db, 'productos');
-        
-        // Creamos una consulta filtrando por el campo 'categoria' de tus documentos
-        const q = query(productosRef, where('categoria', '==', idCategoria));
-        const querySnapshot = await getDocs(q);
-        
-        const docs = querySnapshot.docs.map(docSnap => ({
-          id: docSnap.id,
-          ...docSnap.data()
-        }));
+useEffect(() => {
+  const obtenerProductosPorCategoria = async () => {
+    setLoading(true);
+    try {
+      const productosRef = collection(db, 'productos');
+      let q;
 
-        setProductosFiltrados(docs);
-      } catch (error) {
-        console.error("Error al filtrar categorías:", error);
-      } finally {
-        setLoading(false);
+      // SI EXISTE idCategoria y no es 'todos', filtramos en Firebase. 
+      // SI NO EXISTE o es 'todos', traemos la colección completa.
+      if (idCategoria && idCategoria.toLowerCase() !== 'todos') {
+        q = query(productosRef, where('categoria', '==', idCategoria));
+      } else {
+        q = productosRef; // Trae todo sin filtros
       }
-    };
+      
+      const querySnapshot = await getDocs(q);
+      const docs = querySnapshot.docs.map(docSnap => ({
+        id: docSnap.id,
+        ...docSnap.data()
+      }));
 
-    if (idCategoria) {
-      obtenerProductosPorCategoria();
+      setProductosFiltrados(docs);
+    } catch (error) {
+      console.error("Error al filtrar categorías:", error);
+    } finally {
+      setLoading(false);
     }
-  }, [idCategoria]);
+  };
+
+  obtenerProductosPorCategoria();
+}, [idCategoria]);
+
 
   if (loading) {
     return <div className="loading-screen"><div className="spinner"></div><p>Filtrando catálogo...</p></div>;
