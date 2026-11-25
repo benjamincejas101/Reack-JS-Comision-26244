@@ -1,7 +1,7 @@
 // src/context/AuthContext.jsx
 import { createContext, useState, useContext, useEffect } from "react";
 import { db } from '../firebase/config';
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore"; // <-- Agregamos setDoc
 import {
   getAuth,
   onAuthStateChanged,
@@ -12,7 +12,6 @@ import {
 
 export const AuthContext = createContext();
 
-// ⭐ CORRECCIÓN: Agregado 'export' antes de const useAuth para resolver el SyntaxError
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context)
@@ -20,15 +19,24 @@ export const useAuth = () => {
   return context;
 };
 
-// Crear el proveedor del contexto
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const auth = getAuth(); 
   
-  // Función para registrar un nuevo usuario
-  const signup = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  // Función para registrar un nuevo usuario y guardar su rol en Firestore
+  const signup = async (email, password) => {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const nuevoUsuario = userCredential.user;
+
+    // Creamos su documento en la colección "usuarios" con rol "user"
+    await setDoc(doc(db, "usuarios", nuevoUsuario.uid), {
+      email: nuevoUsuario.email,
+      rol: "user",
+      fechaRegistro: new Date().toISOString()
+    });
+
+    return userCredential;
   };
   
   // Función para iniciar sesión
@@ -38,21 +46,17 @@ export const AuthProvider = ({ children }) => {
   
   // Función para cerrar sesión
   const logout = () => {
-    signOut(auth);
+    return signOut(auth);
   };
 
   useEffect(() => {
-    // onAuthStateChanged es el observador de Firebase
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        // Si hay un usuario, buscamos su rol en Firestore.
         const userDocRef = doc(db, "usuarios", currentUser.uid);
         const userDocSnap = await getDoc(userDocRef);
         if (userDocSnap.exists() && userDocSnap.data().rol === "admin") {
-          // Si el documento existe y tiene rol de admin, lo asignamos.
           setUser({ ...currentUser, rol: "admin" });
         } else {
-          // Para cualquier otro caso, es un usuario regular.
           setUser({ ...currentUser, rol: "user" });
         }
       } else {
@@ -60,11 +64,9 @@ export const AuthProvider = ({ children }) => {
       }
       setLoading(false);
     });
-    // Limpiamos el observador al desmontar
     return () => unsubscribe();
   }, [auth]); 
   
-  // Crear el objeto 'value' con TODAS las funciones definidas
   const value = {
     user,
     loading, 
@@ -73,7 +75,6 @@ export const AuthProvider = ({ children }) => {
     logout,
   };
 
-  // Retornar el Provider, asegurándonos de no renderizar hasta que cargue
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
